@@ -15,12 +15,16 @@
  */
 package com.google.firebase.codelab.friendlychat;
 
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-public class MyFirebaseMessagingService {
+public class MyFirebaseMessagingService extends Service {
 
     private static final String TAG = "MyFMService";
 
@@ -31,4 +35,9 @@ public class MyFirebaseMessagingService {
         Log.d(TAG, "FCM Data Message: " + remoteMessage.getData());
     }
 
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 }
